@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+supabase
+pydantic
+python-multipart
+pydantic
+PyJWT
+bcrypt
+python-dotenv
+torch
+transformers
+PyPDF2
+SpeechRecognition
+pydub
