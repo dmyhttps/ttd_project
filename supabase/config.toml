@@ -1,0 +1,7 @@
+project_id = "ajfxmgpvnareefshrmpk"
+
+[functions.transcribe-audio]
+verify_jwt = false
+
+[functions.analyze-threat]
+verify_jwt = false
