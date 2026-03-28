@@ -14,15 +14,16 @@ const ResetPassword = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Check for recovery token in URL
-    const hash = window.location.hash;
-    if (!hash.includes("type=recovery")) {
-      toast.error("Invalid reset link");
-      navigate("/login");
-    }
-  }, [navigate]);
-
+ useEffect(() => {
+  const hash = window.location.hash;
+  const params = new URLSearchParams(window.location.search);
+  const hasRecovery = hash.includes("type=recovery") || params.get("type") === "recovery";
+  
+  if (!hasRecovery) {
+    toast.error("Invalid reset link");
+    navigate("/login");
+  }
+}, [navigate]);
   const handleReset = async (e: React.FormEvent) => {
     e.preventDefault();
     if (password !== confirmPassword) {
